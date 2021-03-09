@@ -1,7 +1,7 @@
 // Assignment code here
 
 // Arrays for password entries data
-function GeneratePassword() {
+function generatePassword() {
     var lowerCaseSet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     var upperCaseSet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var numSet = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -12,16 +12,15 @@ function GeneratePassword() {
     var passwordLength = getPasswordLength();
     //End Arrays for password entries data
 
-
     var charTypeSelected = false;
 
-    //Whil, If and Else statements
+    //While, If and Else statements
     while (charTypeSelected == false) {
         var lowerCase = getChoice("lowercase");
         var upperCase = getChoice("uppercase");
-        var numericCharac = getChoice("numeric");
-        var specialCharac = getChoice("special");
-        if ((lowerCase) || (upperCase) || (numericCharac) || (specialCharac)) {
+        var numericCharacters = getChoice("numeric");
+        var specialCharacters = getChoice("special");
+        if ((lowerCase) || (upperCase) || (numericCharacters) || (specialCharacters)) {
             charTypeSelected = true;
         } else {
             window.alert("You must select at least one character type.")
@@ -34,10 +33,10 @@ function GeneratePassword() {
     if (upperCase) {
         selectedArray = selectedArray.concat(upperCaseSet);
     }
-    if (numeric) {
+    if (numericCharac) {
         selectedArray = selectedArray.concat(numSet);
     }
-    if (special) {
+    if (specialCharac) {
         selectedArray = selectedArray.concat(specialSet);
     }
 
@@ -57,59 +56,30 @@ function getPasswordLength() {
         userChoice = parseInt(window.prompt("Enter the number of characters between 8 and 128: "));
 
         if (isNaN(userChoice)) {
-
             userChoice = 0;
         }
-        return userChoice;
-
     }
 
-
-
-
+    return userChoice;
 }
 
+function getChoice(currentOption) {
+    var userChoice = "a",
+        messagePrompt = "";
+    var messagePrompt = ('Would you like '.concat(currentOption));
+    messagePrompt = messagePrompt.concat(' characters (y/n)? ');
 
+    while (userChoice = "a") {
+        userChoice = (window.prompt(messagePrompt));
 
-
-
-
-
-
-
+        userChoice = userChoice.toLowerCase();
+        if (userChoice == "y") {
+            return true;
+        } else if (userChoice == "n") {
+            return false;
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
