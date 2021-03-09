@@ -33,10 +33,10 @@ function generatePassword() {
     if (upperCase) {
         selectedArray = selectedArray.concat(upperCaseSet);
     }
-    if (numericCharac) {
+    if (numericCharacters) {
         selectedArray = selectedArray.concat(numSet);
     }
-    if (specialCharac) {
+    if (specialCharacters) {
         selectedArray = selectedArray.concat(specialSet);
     }
 
